@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dp10">10dp</dimen>
+    <dimen name="dp15">15dp</dimen>
+    <dimen name="dp20">20dp</dimen>
+    <dimen name="dp1">1dp</dimen>
+    <dimen name="dp30">30dp</dimen>
+    <dimen name="dp5">5dp</dimen>
+    <dimen name="dp25">25dp</dimen>
+
+    <dimen name="sp16">16sp</dimen>
+    <dimen name="sp18">16sp</dimen>
+    <dimen name="sp14">14sp</dimen>
+    <dimen name="sp12">12sp</dimen>
+    <dimen name="sp10">10sp</dimen>
+    <dimen name="sp20">20sp</dimen>
+
+    <dimen name="small_icon_size">24dp</dimen>
+    <dimen name="button_width">300dp</dimen>
+    <dimen name="button_height">40dp</dimen>
+</resources>
