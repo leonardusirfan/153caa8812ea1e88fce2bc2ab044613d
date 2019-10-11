@@ -15,7 +15,7 @@
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:src="@drawable/image"
-        app:layout_constraintDimensionRatio="2:1"
+        app:layout_constraintDimensionRatio="1.25:1"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -30,18 +30,18 @@
         android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/layout_username"
+        app:layout_constraintBottom_toTopOf="@+id/layout_input"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <LinearLayout
-        android:id="@+id/layout_username"
+        android:id="@+id/layout_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/layout_password"
+        app:layout_constraintBottom_toTopOf="@+id/btn_login"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -75,59 +75,26 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:textSize="@dimen/sp14"
-                android:textColorHint="@color/white"
+                android:textColorHint="@color/white_transparent"
                 android:textColor="@color/white"
                 android:paddingStart="@dimen/dp30"
                 android:paddingEnd="@dimen/dp30"
                 android:background="@android:color/transparent"
                 android:padding="@dimen/dp10"
                 android:gravity="center"
-                android:hint="Insert password here"
+                android:hint="Insert username here"
                 android:theme="@style/WhiteTheme" >
 
                 <requestFocus></requestFocus>
             </EditText>
 
         </RelativeLayout>
-        <!--<EditText
-            android:id="@+id/txt_username"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.8"
-            android:focusable="true"
-            android:background="@drawable/style_edittext"
-            android:padding="@dimen/dp10"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:hint="Insert username here"
-            android:textColorHint="@color/white"
-            android:layout_marginTop="@dimen/dp5"
-            android:focusableInTouchMode="true"
-            android:singleLine="true"
-            android:textCursorDrawable="@null"
-            android:textSize="@dimen/sp14"
-            android:theme="@style/WhiteTheme">
-
-            <requestFocus></requestFocus>
-        </EditText>-->
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_password"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/btn_login"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/layout_username">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Password"
+            android:layout_marginTop="@dimen/dp5"
             android:padding="@dimen/dp5"
             android:textColor="@color/white"
             android:textSize="14sp"
@@ -152,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:textSize="@dimen/sp14"
-                android:textColorHint="@color/white"
+                android:textColorHint="@color/white_transparent"
                 android:textColor="@color/white"
                 android:paddingStart="@dimen/dp30"
                 android:paddingEnd="@dimen/dp30"
@@ -187,7 +154,7 @@
         android:padding="5dp"
         android:text="Login"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/black"
         android:textSize="@dimen/sp14"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
