@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layoutLogin"
+    android:background="@drawable/login_bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
@@ -13,6 +14,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_gravity="center"
+        android:src="@drawable/image"
         app:layout_constraintDimensionRatio="2:1"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.5"
@@ -25,7 +27,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Ticket Scanner"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/layout_username"
@@ -49,24 +51,65 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Username"
-            android:textColor="@color/black"
-            android:textSize="16sp"
+            android:padding="@dimen/dp5"
+            android:textColor="@color/white"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
-        <EditText
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/style_edittext">
+
+            <ImageView
+                android:layout_width="@dimen/very_small_icon_size"
+                android:layout_height="@dimen/very_small_icon_size"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp10"
+                android:src="@drawable/username" />
+
+            <EditText
+                android:id="@+id/txt_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textSize="@dimen/sp14"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:paddingStart="@dimen/dp30"
+                android:paddingEnd="@dimen/dp30"
+                android:background="@android:color/transparent"
+                android:padding="@dimen/dp10"
+                android:gravity="center"
+                android:hint="Insert password here"
+                android:theme="@style/WhiteTheme" >
+
+                <requestFocus></requestFocus>
+            </EditText>
+
+        </RelativeLayout>
+        <!--<EditText
             android:id="@+id/txt_username"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.8"
             android:focusable="true"
+            android:background="@drawable/style_edittext"
+            android:padding="@dimen/dp10"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:hint="Insert username here"
+            android:textColorHint="@color/white"
+            android:layout_marginTop="@dimen/dp5"
             android:focusableInTouchMode="true"
             android:singleLine="true"
             android:textCursorDrawable="@null"
-            android:textSize="@dimen/sp20"
-            android:theme="@style/BlackTheme">
+            android:textSize="@dimen/sp14"
+            android:theme="@style/WhiteTheme">
 
             <requestFocus></requestFocus>
-        </EditText>
+        </EditText>-->
 
     </LinearLayout>
 
@@ -85,22 +128,39 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Password"
-            android:textColor="@color/black"
-            android:textSize="16sp"
+            android:padding="@dimen/dp5"
+            android:textColor="@color/white"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/style_edittext">
+
+            <ImageView
+                android:layout_width="@dimen/very_small_icon_size"
+                android:layout_height="@dimen/very_small_icon_size"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp10"
+                android:src="@drawable/password" />
 
             <EditText
                 android:id="@+id/txt_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:textSize="@dimen/sp20"
+                android:textSize="@dimen/sp14"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:paddingStart="@dimen/dp30"
                 android:paddingEnd="@dimen/dp30"
-                android:theme="@style/BlackTheme" />
+                android:background="@android:color/transparent"
+                android:padding="@dimen/dp10"
+                android:gravity="center"
+                android:hint="Insert password here"
+                android:theme="@style/WhiteTheme" />
 
             <ImageView
                 android:id="@+id/img_visible"
@@ -108,10 +168,11 @@
                 android:layout_alignBottom="@id/txt_password"
                 android:layout_width="@dimen/small_icon_size"
                 android:layout_height="@dimen/small_icon_size"
+                android:padding="2dp"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/dp10"
                 android:layout_marginBottom="@dimen/dp10"
-                android:src="@drawable/invisible" />
+                android:src="@drawable/closeeye" />
 
         </RelativeLayout>
 
@@ -124,7 +185,7 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/style_login_button"
         android:padding="5dp"
-        android:text="Masuk"
+        android:text="Login"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="@dimen/sp14"

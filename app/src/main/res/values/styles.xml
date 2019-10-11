@@ -15,10 +15,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="BlackTheme">
-        <item name="colorControlNormal">#000000</item>
-        <item name="colorControlActivated">#000000</item>
-        <item name="colorControlHighlight">#000000</item>
+    <style name="WhiteTheme">
+        <item name="colorControlNormal">#ffffff</item>
+        <item name="colorControlActivated">#ffffff</item>
+        <item name="colorControlHighlight">#ffffff</item>
     </style>
 
     <style name="DialogAnimation">

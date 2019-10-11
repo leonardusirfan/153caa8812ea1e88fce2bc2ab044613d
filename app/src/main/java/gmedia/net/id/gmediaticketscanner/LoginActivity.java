@@ -3,9 +3,12 @@ package gmedia.net.id.gmediaticketscanner;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -19,7 +22,9 @@ import gmedia.net.id.gmediaticketscanner.Util.JSONBuilder;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private boolean password_visible = false;
     private EditText txt_username, txt_password;
+    private ImageView img_visible;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +48,23 @@ public class LoginActivity extends AppCompatActivity {
                 else{
                     login(txt_username.getText().toString(),
                             txt_password.getText().toString());
+                }
+            }
+        });
+
+        img_visible = findViewById(R.id.img_visible);
+        findViewById(R.id.img_visible).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                password_visible = !password_visible;
+                if(password_visible){
+                    img_visible.setImageDrawable(getResources().getDrawable(R.drawable.eye));
+                    txt_password.setInputType(InputType.TYPE_CLASS_TEXT);
+                }
+                else{
+                    img_visible.setImageDrawable(getResources().getDrawable(R.drawable.closeeye));
+                    txt_password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    txt_password.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 }
             }
         });

@@ -16,6 +16,7 @@
     <dimen name="sp20">20sp</dimen>
 
     <dimen name="small_icon_size">24dp</dimen>
+    <dimen name="very_small_icon_size">16dp</dimen>
     <dimen name="button_width">300dp</dimen>
     <dimen name="button_height">40dp</dimen>
 </resources>

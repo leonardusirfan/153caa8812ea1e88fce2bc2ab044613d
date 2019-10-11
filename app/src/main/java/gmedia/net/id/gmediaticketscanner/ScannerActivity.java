@@ -2,12 +2,14 @@ package gmedia.net.id.gmediaticketscanner;
 
 import android.Manifest;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -15,9 +17,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
@@ -30,6 +30,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.ResultPoint;
@@ -54,6 +55,10 @@ import gmedia.net.id.gmediaticketscanner.Util.JSONBuilder;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 public class ScannerActivity extends AppCompatActivity {
+
+    private AudioManager audioManager;
+    private int max_volume = 100;
+    private int current_volume = 0;
 
     private final int PERMISSION_CODE = 900;
     private DecoratedBarcodeView barcodeView;
@@ -101,13 +106,23 @@ public class ScannerActivity extends AppCompatActivity {
                     {Manifest.permission.CAMERA}, PERMISSION_CODE);
         }
 
-        //AUTO VOLUME
-        /*AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
-        int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, maxVolume, AudioManager.FLAG_SHOW_UI);*/
+        //AUTO LOUD
+        audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        current_volume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+        max_volume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        increaseVolume();
+        Toast.makeText(this, "Volume telah dinaikkan secara otomatis", Toast.LENGTH_SHORT).show();
 
         mp_success = MediaPlayer.create(this, R.raw.beep);
         mp_fail = MediaPlayer.create(this, R.raw.fail);
+    }
+
+    private void increaseVolume(){
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, max_volume, AudioManager.FLAG_SHOW_UI);
+    }
+
+    private void decreaseVolume(){
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, current_volume, AudioManager.FLAG_SHOW_UI);
     }
 
     private void playBeep(boolean success){
@@ -170,7 +185,6 @@ public class ScannerActivity extends AppCompatActivity {
         Point size = new Point();
         display.getRealSize(size);
         int device_TotalWidth = size.x;
-        int device_TotalHeight = size.y;
 
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -260,12 +274,14 @@ public class ScannerActivity extends AppCompatActivity {
         if(!dialog_show){
             barcodeView.resume();
         }
+        increaseVolume();
         super.onResume();
     }
 
     @Override
     protected void onPause() {
         barcodeView.pause();
+        decreaseVolume();
         super.onPause();
     }
 
